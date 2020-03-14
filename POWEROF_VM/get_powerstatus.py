@@ -12,13 +12,13 @@ def get_powerstatus(ip, username, password, vmid):
         x = stdout.read().decode()
         for line in x.split('\n'):
             if re.match('.*Powered on.*', line.strip()):
-                return (1)
+                return 1
             elif re.match('.*Powered off.*', line.strip()):
-                return (2)
+                return 2
         ssh.close()
     except Exception as e:
         print(e)
-        print('%stErrorn' % (ip))
+        print('%stErrorn' % ip)
 
 
 if __name__ == '__main__':
